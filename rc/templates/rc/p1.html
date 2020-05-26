@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--Logut-->
+    <div align='center'>
+    
+        
+    <form action="{% url 'p1' %}" method="POST">
+        {% csrf_token %}
+        <a href="{% url 'logout' %}">Logout</a>
+    
+</form>
+    </div>
+
+
+    <!--Search form-->
+    <div align='center'>
+        <h1>Enter email to search User details</h1>
+        
+    <form action="{% url 'p1' %}" method="POST">
+        {% csrf_token %}
+        Enter Email:{{form_ob.search_email}}
+        <button type="submit">Search</button>
+</form>
+    </div>
+<!--End Search form-->
+
+<!--Displaying user details here-->
+<div align='center'>
+     
+    <p>Username:{{model_ob.model_username}}</p>
+    <p>First name:{{model_ob.model_firstname}}</p>
+    <p>Last name:{{model_ob.model_lastname}}</p>
+    <p>Email address:{{model_ob.model_email}}</p>
+    <p>Phone number:{{model_ob.model_phone}}</p>
+</div>
+
+<!--End Displaying user details-->
+
+
+
+
+</body>
+</html>

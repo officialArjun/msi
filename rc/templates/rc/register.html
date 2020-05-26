@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p><h1><a href="{% url 'index' %}">Home</a></h1></p>
+
+    <!-- Register form-->
+    <div align='center'>
+        <h1>Create your account</h1>
+        <form action="{% url 'register' %}" method="POST">
+            {% csrf_token %}
+            
+           <p>Username:{{form_ob.form_username}}</p>
+           <p>{{form_ob.form_username.errors}}</p>
+           
+           <p>First Name:{{form_ob.form_firstname}}</p>
+           <p>Last Name:{{form_ob.form_lastname}}</p>
+           
+           <p>Emailaddress:{{form_ob.form_email}}</p>
+           <p>{{form_ob.form_email.errors}}</p>
+
+           <p>Mobile number:{{form_ob.form_phone}}</p>
+           <p>{{form_ob.form_phone.errors}}</p>
+           
+           <p>Password:{{form_ob.form_pass1}}</p>
+           <p>Confirm Passwrod:{{form_ob.form_pass2}}</p>
+           <p>{{form_ob.form_pass2.errors}}</p>
+          <button type="submit">Register</button>
+          </form>
+      
+    </div>
+    <!--End Register form-->
+</body>
+</html>
